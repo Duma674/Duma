@@ -29,6 +29,12 @@ export default function App() {
       });
       
       console.log('Lead enviado a Brevo:', { name, email });
+      
+      // Track Meta Pixel Lead Event
+      if (typeof (window as any).fbq === 'function') {
+        (window as any).fbq('track', 'Lead');
+      }
+
       setIsSubmitted(true);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (error) {
@@ -202,6 +208,11 @@ export default function App() {
               href="https://deinversoratrader.com/hazte-miembro/" 
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => {
+                if (typeof (window as any).fbq === 'function') {
+                  (window as any).fbq('track', 'InitiateCheckout');
+                }
+              }}
               className="inline-block bg-orange-600 text-white font-black py-5 px-10 rounded-xl hover:bg-orange-700 transition-all shadow-lg shadow-orange-600/40 text-lg md:text-xl"
             >
               🚀 SÍ, QUIERO ENTRAR A LA COMUNIDAD DE DOC
