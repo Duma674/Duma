@@ -142,7 +142,7 @@ export default function App() {
             <h3 className="text-2xl font-bold mb-6">1. Descarga tu Ebook e Indicador</h3>
             <div className="flex flex-col md:flex-row items-center gap-8 justify-center">
               <img 
-                src="https://static.deinversoratrader.com/2026/04/Diseno-sin-titulo-2026-04-09T135544.367-Photoroom.png" 
+                src="https://static.deinversoratrader.com/2026/04/Diseno-sin-titulo-2026-04-09T194210.804-Photoroom.png" 
                 alt="Ebook" 
                 className="w-32 shadow-xl"
               />
@@ -279,24 +279,32 @@ export default function App() {
             <div className="absolute inset-0 bg-orange-500/10 blur-[100px] rounded-full transform scale-75"></div>
             
             {/* Mockup Image Container */}
-            <div className="relative z-10 group">
+            <motion.div 
+              whileHover={{ scale: 1.02, rotate: -1 }}
+              transition={{ type: 'spring', stiffness: 300 }}
+              className="relative z-10 group cursor-pointer"
+            >
               <img 
-                src="https://static.deinversoratrader.com/2026/04/Diseno-sin-titulo-2026-04-09T135544.367-Photoroom.png" 
+                src="https://static.deinversoratrader.com/2026/04/Diseno-sin-titulo-2026-04-09T194210.804-Photoroom.png" 
                 alt="Guía Túnel Domènec Mockup"
                 referrerPolicy="no-referrer"
-                className="w-full max-w-[420px] h-auto drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)] transition-transform duration-500 group-hover:scale-105"
+                className="w-full max-w-[420px] h-auto drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)] transition-transform duration-500"
               />
               
               {/* Floating Badge */}
               <motion.div 
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
-                transition={{ delay: 0.5, type: 'spring' }}
-                className="absolute -bottom-6 -right-6 bg-orange-600 text-white text-sm font-black px-6 py-3 rounded-xl shadow-xl transform rotate-12 border-2 border-white"
+                whileHover={{ scale: 1.1, rotate: 15 }}
+                transition={{ 
+                  initial: { delay: 0.5, type: 'spring' },
+                  whileHover: { type: 'spring', stiffness: 400 }
+                }}
+                className="absolute -bottom-6 -right-6 bg-orange-600 text-white text-[10px] md:text-xs font-black px-4 py-3 rounded-xl shadow-xl transform rotate-12 border-2 border-white z-20"
               >
-                PDF + VÍDEO GRATIS
+                PDF + VÍDEO + INDICADOR GRATIS
               </motion.div>
-            </div>
+            </motion.div>
           </motion.div>
 
           {/* Right Column: Benefits & Form */}
